@@ -1,25 +1,17 @@
 import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Range } from "./Components/Range";
+import { NormalRange } from "./Components/NormalRange";
+import "./App.css";
 
 const App = () => {
   return (
-    <div
-      style={{
-        border: "2px solid red",
-        borderRadius: "10%",
-        width: "10rem",
-        position: "relative",
-      }}
-    >
-      <span
-        style={{
-          position: "absolute",
-          width: "10px",
-          height: "10px",
-          background: "green",
-          borderRadius: "50%",
-        }}
-      ></span>
-    </div>
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<Range />} />
+        <Route exact path="/exercise1" element={<NormalRange />} />
+      </Routes>
+    </Router>
   );
 };
 

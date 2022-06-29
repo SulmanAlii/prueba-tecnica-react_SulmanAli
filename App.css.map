@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "ACAA,AAAA,eAAe,CAAC;EACd,KAAK,EAAE,MAAM;EACb,MAAM,EAAE,MAAM;EACd,UAAU,EAAE,OAAO;EACnB,aAAa,EAAE,KAAK;EACpB,QAAQ,EAAE,UAAU;EACpB,IAAI,EAAE,MAAM;EACZ,GAAG,EAAE,MAAM;CACZ",
+    "sources": [
+        "App.scss",
+        "src/styles/range.scss"
+    ],
+    "names": [],
+    "file": "App.css"
+}

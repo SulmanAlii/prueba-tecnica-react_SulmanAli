@@ -1,4 +1,5 @@
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   mode: "development",
@@ -7,7 +8,6 @@ module.exports = {
     path: path.resolve(__dirname, "public"),
     filename: "main.js",
   },
-
   target: "web",
   devServer: {
     port: "3000",
@@ -15,6 +15,7 @@ module.exports = {
     open: true,
     hot: true,
     liveReload: true,
+    historyApiFallback: true,
   },
   resolve: {
     extensions: [".js", ".jsx", ".json", ".ts"],
@@ -24,8 +25,31 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: "babel-loader",
+        loader: "babel-loader",
+        // query: {
+        //   presets: ["es2015"],
+        // },
       },
+      { test: /\.css$/, use: ["style-loader", "css-loader"] },
+      // {
+      //   test: /\.scss$/,
+      //   include: [path.resolve(__dirname, "styles")],
+      //   use: [
+      //     { loader: "style-loader" },
+      //     { loader: "css-loader" },
+      //     { loader: "sass-loader" },
+      //   ],
+      // },
     ],
   },
+
+  // output: {
+  //   publicPath: "/",
+  // },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, "public/index.html"),
+      filename: "index.html",
+    }),
+  ],
 };
